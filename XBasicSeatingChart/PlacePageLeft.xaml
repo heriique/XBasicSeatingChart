@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XBasicSeatingChart"
+             x:Class="XBasicSeatingChart.PlacePageLeft"
+             x:Name="ppl"
+             BindingContext="{StaticResource commonVM}"
+             >
+    <ContentView.Resources>
+        <local:RandomizeButtonNameConverter x:Key="Converter1"/>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Grid Background="{Binding LeftColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Random seats" Grid.ColumnSpan="2" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="{Binding FontColor}"/>
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding UnplacedNames}" SelectedItem="{Binding SelectedUnplacedName, Mode=TwoWay}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Label Text="{Binding .}" TextColor="{Binding BindingContext.FontColor, Source={x:Reference ppl}}"/>
+                            </ViewCell.View>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="2" Text="{Binding UnplacedNames.Count, Converter={StaticResource Converter1}}" Command="{Binding Randomize}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"></Button>
+            <Button Grid.Row="2" Grid.Column="1" Text="Save"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"></Button>
+            <Button Grid.Row="3" Grid.Column="0" x:Name="btnGoBackToPrePlacePage" Text="&lt;&lt;&lt; Back" Command="{Binding GoBackToPrePlacePage}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="3" Grid.Column="1" x:Name="btnGoToExport" Text="Export"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

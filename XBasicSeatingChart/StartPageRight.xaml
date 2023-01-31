@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XBasicSeatingChart.StartPageRight"
+             BindingContext="{StaticResource commonVM}"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+  <ContentView.Content>
+        <Grid Background="{Binding RightColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" Grid.Column="1" Text="Some Title" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                   TextColor="{Binding FontColor}" FontSize="Large" FontAttributes="Bold"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

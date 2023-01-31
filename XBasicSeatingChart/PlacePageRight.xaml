@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XBasicSeatingChart.PlacePageRight"
+             x:Name="ppr"
+             xmlns:local="clr-namespace:XBasicSeatingChart"
+             BindingContext="{StaticResource commonVM}" local:PlacePageRight.RowCount="{Binding Rows}" local:PlacePageRight.ColumnCount="{Binding Columns}">
+  <ContentView.Content>
+        <Grid Background="{Binding RightColor}" Padding="10" x:Name="placePageRightGrid">
+
+        </Grid>
+    </ContentView.Content>
+</ContentView>

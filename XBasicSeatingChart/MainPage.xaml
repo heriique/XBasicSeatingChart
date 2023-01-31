@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XBasicSeatingChart"
+             x:Class="XBasicSeatingChart.MainPage"
+             BindingContext="{StaticResource commonVM}"
+             Title="Main Page">
+
+    <ContentPage.Content>
+        <Grid x:Name="rotatingGrid" Padding="10">
+            <!-- can change orientation to make responsive -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/> <!-- adjust size at startup-->
+                <ColumnDefinition Width="1.6*"/>
+            </Grid.ColumnDefinitions>
+            <local:StartPageLeft x:Name="startPageLeft" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <local:StartPageRight x:Name="startPageRight" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+
+
+
+</ContentPage>

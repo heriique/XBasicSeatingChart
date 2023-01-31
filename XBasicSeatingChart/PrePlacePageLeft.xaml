@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XBasicSeatingChart.PrePlacePageLeft"
+             BindingContext="{StaticResource commonVM}"
+             x:Name="pppl">
+  <ContentView.Content>
+        <Grid Background="{Binding LeftColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Fixed seats" Grid.ColumnSpan="2" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="{Binding FontColor}"/>
+            <ListView Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding UnplacedNames}" SelectedItem="{Binding SelectedUnplacedName, Mode=TwoWay}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Label Text="{Binding .}" TextColor="{Binding BindingContext.FontColor, Source={x:Reference pppl}}"/>
+                            </ViewCell.View>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Grid.Row="2" Grid.Column="0" x:Name="btnGoBackToDesignPage" Text="&lt;&lt;&lt; Back" Command="{Binding GoBackToDesignPage}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btnGoToPlacePage" Text="Next >>>" Command="{Binding GoToPlacePage}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

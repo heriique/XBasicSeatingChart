@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XBasicSeatingChart"
+             x:Class="XBasicSeatingChart.StudentPageLeft"
+             BindingContext="{StaticResource commonVM}">
+
+  <ContentView.Content>
+        <Grid Background="{Binding LeftColor}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Add Names " Grid.ColumnSpan="2" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="{Binding FontColor}"/>
+            <Entry Grid.Row="1" Grid.ColumnSpan="2" x:Name="entryName" BackgroundColor="{Binding EntryColor}"
+                   TextColor="{Binding FontColor}" Text="{Binding InputName}" Placeholder="Enter name..." PlaceholderColor="{Binding PlaceholderColor}"/>
+            <Button Grid.Row="2" x:Name="btnAddName" Text="Add Name" Command="{Binding AddName}" Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="2" Grid.Column="1" x:Name="btnRemoveName" Text="Remove Name"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}" Command="{Binding RemoveName}"/>
+            <Button Grid.Row="3" Grid.ColumnSpan="2" x:Name="btnSaveList" Text="Save List" Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Text="{Binding ThemeName, StringFormat='Color Theme: {0}'}" Command="{Binding ColorScheme}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="5" Grid.Column="0" x:Name="btnGoBackToStartPage" Text="&lt;&lt;&lt; Back" Command="{Binding GoBackToStartPage}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+            <Button Grid.Row="5" Grid.Column="1" x:Name="btnGoToDesignPage" Text="Next >>>" Command="{Binding GoToDesignPage}"
+                    Background="{Binding ButtonColorLeft}" TextColor="{Binding FontColor}"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
